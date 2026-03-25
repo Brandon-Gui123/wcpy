@@ -1,6 +1,6 @@
 # wcpy
 
-A `wc`-like tool I made for the "[Build Your Own wc Tool](https://codingchallenges.fyi/challenges/challenge-wc)" coding challenge at [codingchallenges.fyi](https://codingchallenges.fyi/).
+A `wc`-like tool I made using Python for the "[Build Your Own wc Tool](https://codingchallenges.fyi/challenges/challenge-wc)" coding challenge at [codingchallenges.fyi](https://codingchallenges.fyi/).
 
 ## Prerequisites
 
