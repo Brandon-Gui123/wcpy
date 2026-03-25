@@ -8,6 +8,7 @@ def main():
     parser.add_argument('-c', '--bytes', action='store_true',help='Counts the number of bytes.', dest='is_counting_bytes')
     parser.add_argument('-l', '--lines', action='store_true', help='Counts the number of lines.', dest='is_counting_lines')
     parser.add_argument('-w', '--words', action='store_true', help='Counts the number of words.', dest='is_counting_words')
+    parser.add_argument('-m', '--chars', action='store_true', help='Counts the number of characters.', dest='is_counting_chars')
     parser.add_argument('file', help='The file to read.')
 
     args = parser.parse_args()
@@ -18,6 +19,8 @@ def main():
         print(get_number_of_lines(args.file), args.file)
     elif args.is_counting_words:
         print(get_number_of_words(args.file), args.file)
+    elif args.is_counting_chars:
+        print(get_number_of_chars(args.file), args.file)
 
 def get_number_of_bytes(path_to_file):
     with open(path_to_file, 'rb') as file:
@@ -39,6 +42,18 @@ def get_number_of_words(path_to_file):
         while (line := file.readline()):
             total_words += len(line.split())
         return total_words
+
+def get_number_of_chars(path_to_file):
+    max_chars_read = 100
+
+    # using newline='' so the newline characters are untranslated so we count
+    # the number of chars properly
+    with open(path_to_file, 'r', encoding='utf-8', newline='') as file:
+        total_chars = 0
+        while (string := file.read(max_chars_read)):
+            total_chars += len(string)
+        return total_chars
+
 
 if __name__ == '__main__':
     main()
