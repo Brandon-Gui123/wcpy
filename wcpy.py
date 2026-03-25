@@ -14,11 +14,10 @@ def main():
         print(get_number_of_bytes(args.file), args.file)
 
 def get_number_of_bytes(path_to_file):
-    data = []
     with open(path_to_file, 'rb') as file:
         data = file.read()
+        return len(data)
     
-    return len(data)
 
 
 if __name__ == '__main__':
